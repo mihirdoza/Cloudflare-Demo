@@ -85,6 +85,7 @@ app.post('/upload', async (c) => {
 			  record.Attrib
 			)
 			.run();
+			return c.json({ message: 'Data successfully uploaded and processed.' }, 200);
 		} catch (err){
 						
 			return c.json({ message: `Error processing request: ${err.message}` }, 500);
