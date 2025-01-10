@@ -44,8 +44,55 @@ app.post('/upload', async (c) => {
 	  const records = parsedData.SearchInfo;
 	  const batchSize = 400;
   
-	  // Here you can add your database logic or other processing logic
-	  // Example: Inserting data into a database
+	  const createTableSQL = `
+	  CREATE TABLE IF NOT EXISTS Search1 (
+		EQID TEXT PRIMARY KEY,
+		MfgAcronym TEXT,
+		EQType TEXT,
+		MfgEQType TEXT,
+		MfgProdLine TEXT,
+		MfgProdNo TEXT,
+		MfgDesc TEXT,
+		Manufacturer TEXT,
+		Attrib TEXT
+	  );
+	`;
+	await env.r.prepare(createTableSQL).run();
+
+	// Insert data in batches
+	const insertSQL = `
+	  INSERT INTO Search1 (
+		EQID, MfgAcronym, EQType, MfgEQType, MfgProdLine, MfgProdNo, MfgDesc, Manufacturer, Attrib
+	  ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+	  ON CONFLICT(EQID) DO NOTHING;
+	`;
+
+	for (let i = 0; i < records.length; i += batchSize) {
+	  const batch = records.slice(i, i + batchSize);
+
+	  for (const record of batch) {
+		try {
+		  await env.r
+			.prepare(insertSQL)
+			.bind(
+			  record.EQID,
+			  record.MfgAcronym,
+			  record.EQType,
+			  record.MfgEQType,
+			  record.MfgProdLine,
+			  record.MfgProdNo,
+			  record.MfgDesc,
+			  record.Manufacturer,
+			  record.Attrib
+			)
+			.run();
+		} catch (err){
+						
+			return c.json({ message: `Error processing request: ${err.message}` }, 500);
+		}
+	}
+}
+		
   
 	  return c.json({ message: 'Data successfully uploaded and processed.' }, 200);
   
