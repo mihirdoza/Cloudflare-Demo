@@ -18,6 +18,43 @@ app.use('*', async (c, next) => {
 /**
  * Build SQL Query with Parameterized Placeholders
  */
+app.post('/upload', async (c) => {
+	try {
+	  const formData = await c.req.formData();
+	  const file = formData.get('file');
+  
+	  if (!file) {
+		return c.json({ message: 'No file uploaded.' }, 400);
+	  }
+  
+	  const jsonData = await file.text();
+	  const cleanJsonData = jsonData.replace(/^\uFEFF/, ''); // Remove BOM if present
+  
+	  let parsedData;
+	  try {
+		parsedData = JSON.parse(cleanJsonData);
+	  } catch (err) {
+		return c.json({ message: `JSON parsing error: ${err.message}` }, 400);
+	  }
+  
+	  if (!parsedData.SearchInfo || !Array.isArray(parsedData.SearchInfo)) {
+		return c.json({ message: "Invalid JSON structure: 'SearchInfo' must be an array." }, 400);
+	  }
+  
+	  const records = parsedData.SearchInfo;
+	  const batchSize = 400;
+  
+	  // Here you can add your database logic or other processing logic
+	  // Example: Inserting data into a database
+  
+	  return c.json({ message: 'Data successfully uploaded and processed.' }, 200);
+  
+	} catch (err) {
+	  return c.json({ message: `Error processing request: ${err.message}` }, 500);
+	}
+  });
+  
+
 
 app.post('/manufacturer', async (c) => {
 	try {

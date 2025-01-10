@@ -31,7 +31,7 @@ const App = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "https://red-king-482c.mohit-r.workers.dev",
+        "https://workers.rahul-p-dd9.workers.dev/upload",
         formData,
         {
           headers: {
