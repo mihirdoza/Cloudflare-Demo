@@ -72,8 +72,7 @@ app.post('/upload', async (c) => {
 
 	  for (const record of batch) {
 		try {
-		  await env.r
-			.prepare(insertSQL)
+		  await c.env.DB.prepare(insertSQL)
 			.bind(
 			  record.EQID,
 			  record.MfgAcronym,
