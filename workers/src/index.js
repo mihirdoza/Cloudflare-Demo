@@ -57,7 +57,7 @@ app.post('/upload', async (c) => {
 		Attrib TEXT
 	  );
 	`;
-	await env.r.prepare(createTableSQL).run();
+	await c.env.DB.prepare(createTableSQL).run();
 
 	// Insert data in batches
 	const insertSQL = `
