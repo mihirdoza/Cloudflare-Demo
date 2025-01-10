@@ -92,18 +92,102 @@ function buildQuery(search, condition = 'OR') {
 //   }
 // });
 
+// app.post('/manufacturer', async (c) => {
+// 	try {
+// 	  // Parse the request body
+// 	  const body = await c.req?.json()||{}
+// 	  console.log('Request Body:', body);
+  
+// 	  const { search, condition } = body || {};
+// 	  const queryCondition = condition || 'OR'; // Default to 'OR' if no condition is provided
+  
+// 	//   if (!search) {
+// 	// 	return c.json({ manufacturers: [], totalManufacturer: 0 }, 200); // Return empty if no search keyword
+// 	//   }
+  
+// 	  // Split the keywords by spaces and escape single quotes for safety
+// 	  const words = search.split(/\s+/).map(word => word.replace(/'/g, "''"));
+// 	  console.log('Keywords:', words);
+  
+// 	  // Build the conditions for each keyword in the search
+// 	  const conditions = words.map(
+// 		word => `
+// 		  (EQID LIKE '%${word}%' OR 
+// 		   MfgAcronym LIKE '%${word}%' OR 
+// 		   EQType LIKE '%${word}%' OR 
+// 		   MfgEQType LIKE '%${word}%' OR 
+// 		   MfgProdLine LIKE '%${word}%' OR 
+// 		   MfgProdNo LIKE '%${word}%' OR 
+// 		   MfgDesc LIKE '%${word}%' OR 
+// 		   Manufacturer LIKE '%${word}%')`
+// 	  );
+  
+// 	  // Join the conditions with the provided condition (AND or OR)
+// 	  const sqlCondition = conditions.join(` ${queryCondition} `);
+  
+// 	  // Build the SQL query
+// 	  const sqlQuery = `SELECT DISTINCT Manufacturer FROM search2 WHERE ${sqlCondition}`;
+// 	  console.log('SQL Query:', sqlQuery);
+  
+// 	  // Execute the query on the D1 database
+// 	  const queryResult = await c.env.DB.prepare(sqlQuery).all();
+// 	  const results = queryResult?.results || [];
+  
+// 	  // Return the results as JSON
+// 	  if (results.length === 0) {
+// 		return c.json({ manufacturers: [], totalManufacturer: 0 }, 200);
+// 	  }
+  
+// 	  const manufacturers = results.map(row => row.Manufacturer);
+// 	  return c.json({ manufacturers, totalManufacturer: manufacturers.length }, 200);
+  
+// 	} catch (error) {
+// 	  console.error('Error:', error.stack || error.message || error);
+// 	  return c.json({ error: 'Server error. Check logs for details.' }, 500);
+// 	}
+//   });
+
 app.post('/manufacturer', async (c) => {
 	try {
 	  // Parse the request body
-	  const body = await c.req.json();
+	  const body = await c.req?.json()?.catch(() => null);
+	  
 	  console.log('Request Body:', body);
+  
+	  if (!body || Object.keys(body).length === 0) {
+		// If the body is empty, return all data from the database
+		const sqlQuery = `SELECT DISTINCT Manufacturer FROM search2`;
+		console.log('SQL Query for all data:', sqlQuery);
+  
+		const queryResult = await c.env.DB.prepare(sqlQuery).all();
+		const results = queryResult?.results || [];
+  
+		if (results.length === 0) {
+		  return c.json({ manufacturers: [], totalManufacturer: 0 }, 200);
+		}
+  
+		const manufacturers = results.map(row => row.Manufacturer);
+		return c.json({ manufacturers, totalManufacturer: manufacturers.length }, 200);
+	  }
   
 	  const { search, condition } = body || {};
 	  const queryCondition = condition || 'OR'; // Default to 'OR' if no condition is provided
   
-	//   if (!search) {
-	// 	return c.json({ manufacturers: [], totalManufacturer: 0 }, 200); // Return empty if no search keyword
-	//   }
+	  // If search is not provided, return all data
+	  if (!search) {
+		const sqlQuery = `SELECT DISTINCT Manufacturer FROM search2`;
+		console.log('SQL Query for all data (search missing):', sqlQuery);
+  
+		const queryResult = await c.env.DB.prepare(sqlQuery).all();
+		const results = queryResult?.results || [];
+  
+		if (results.length === 0) {
+		  return c.json({ manufacturers: [], totalManufacturer: 0 }, 200);
+		}
+  
+		const manufacturers = results.map(row => row.Manufacturer);
+		return c.json({ manufacturers, totalManufacturer: manufacturers.length }, 200);
+	  }
   
 	  // Split the keywords by spaces and escape single quotes for safety
 	  const words = search.split(/\s+/).map(word => word.replace(/'/g, "''"));
@@ -146,6 +230,8 @@ app.post('/manufacturer', async (c) => {
 	  return c.json({ error: 'Server error. Check logs for details.' }, 500);
 	}
   });
+  
+
 
   app.post("/equipment", async (c) => {
 	try {
@@ -447,6 +533,7 @@ app.get('/', async (c) => {
 	  return c.json({ error: 'Database connection failed.' }, 500);
 	}
   });
+  
   
 
 
