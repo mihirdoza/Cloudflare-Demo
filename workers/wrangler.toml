@@ -1,6 +1,6 @@
 #:schema node_modules/wrangler/config-schema.json
 name = "workers"
-main = "src/index.js"
+main = "dist/index.js"
 compatibility_date = "2024-12-30"
 compatibility_flags = ["nodejs_compat"]
 
@@ -14,8 +14,10 @@ enabled = true
 # If you are running back-end logic in a Worker, running it closer to your back-end infrastructure
 # rather than the end user may result in better performance.
 # Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
-# [placement]
-# mode = "smart"
+
+[placement]
+mode = "smart"
+
 
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
 # Docs:
@@ -45,9 +47,16 @@ enabled = true
 
 [[d1_databases]]
 
+# demo database
 binding = "DB"
-database_name = "netzoom"
-database_id = "dcc9bc13-e2fa-4687-8c6e-9b43fda04a58"
+database_name = "demo"
+database_id = "72a56221-9549-47d4-89e2-caa8d005798f"
+
+# working database
+#binding = "DB"
+#database_name = "netzoom"
+#database_id = "d8033594-ecea-4e41-8280-c73a8c385721"
+
 
 # Bind a dispatch namespace. Use Workers for Platforms to deploy serverless functions programmatically on behalf of your customers.
 # Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#dispatch-namespace-bindings-workers-for-platforms
@@ -114,3 +123,9 @@ database_id = "dcc9bc13-e2fa-4687-8c6e-9b43fda04a58"
 # [[vectorize]]
 # binding = "MY_INDEX"
 # index_name = "my-index"
+
+[build]
+command = "npm run build"
+
+
+

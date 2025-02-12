@@ -1,0 +1,40 @@
+.nz-image-list-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+}
+
+.nz-image-list-container.nz-list-vertical {
+    flex-direction: column;
+    align-items: center;
+    padding: 3px !important;
+}
+
+.nz-image-list-container .nz-selected {
+    background-color: white;
+    color: black;
+}
+
+.nz-image-list-container .nz-action-image-container {
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.nz-image-list-container .nz-label-container {
+    padding: 5px;
+}
+
+.nz-image-list-container .nz-action-image-container .nz-image-container {
+    padding: 5px;
+}
+
+.nz-image-list-separator {
+    width: 100%;
+    height: 1px;
+    border: 1px;
+    padding: 0px;
+    margin: 3px 0px;
+    background: black;
+}

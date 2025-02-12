@@ -1,0 +1,14 @@
+.nz-right-mouse-menu {
+    margin: 3px;
+}
+
+.nz-popover-three-dots-menu-div .nz-action-image-container:hover {
+    background-color: var(--primary) !important;
+}
+
+.nz-image-list-container .nz-image-container {
+    width: 40px !important;
+}
+.nz-popover-three-dots-menu-div .MuiPaper-root{
+overflow-y: auto;
+}

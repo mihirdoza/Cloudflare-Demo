@@ -1,1 +1,15 @@
-node_modules
+# Node modules
+node_modules/
+npm-debug.log
+yarn.lock
+pnpm-lock.yaml
+
+
+# Build output
+dist/
+.cache/
+build/
+*.log
+
+# VS Code settings
+.vscode/

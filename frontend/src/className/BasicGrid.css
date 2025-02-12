@@ -1,0 +1,24 @@
+.ag-row-selected.ag-row-focus.ag-row-hover .nz-grid-copy-row-icon {
+    display: block !important;
+}
+
+.nz-right-mouse-action-cell .nz-right-mouse-menu {
+    padding: 0px !important;
+}
+
+.nz-right-mouse-action-cell:first-child {
+    display: flex;
+    padding: 0px;
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+.nz-right-mouse-action-cell-btn {
+    display: flex;
+}
+
+.nz-edit-delete-icon {
+    padding: 3px;
+    display: flex;
+}

@@ -1,0 +1,27 @@
+.form-control-labeled {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.form-control-labeled .MuiInputBase-root {
+    border-radius: 0px !important;
+    padding: 4px !important;
+}
+.form-control-labeled .MuiInputBase-root.Mui-error {
+    border: 1px solid red;
+    border-radius: 0px;
+}
+
+.form-control-labeled .nz-label-container:first-child {
+    padding-bottom: 2px;
+}
+.form-control-labeled .nz-label-container:last-child {
+    padding-top: 2px;
+}
+.form-control-labeled input {
+    padding: 1px !important;
+}
+.form-control-labeled input{
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
