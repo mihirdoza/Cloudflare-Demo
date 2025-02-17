@@ -584,7 +584,7 @@
 
   .justify-content-end{
     justify-content:flex-end;  
-    }
+    } 
  
 .upload-body{
   padding-top: 10px;
@@ -655,16 +655,30 @@
 .upload-msg-main{
   margin-left: 15px;
 }
-
+.me-1{
+  margin-right: 10px !important;
+}
+.mb-1{
+  margin-bottom: 1rem !important;
+}
 
 .mt-1{
   margin-top: 1rem !important;
 }
 
 .justify-self-end{
-  justify-self: flex-end;
+  justify-self: flex-end !important;
 }
 
 .align-self-end{
   align-self: flex-end;
+}
+.w-80{
+  width: 80%;
+}
+.ms-1{
+  margin-left: 1rem !important;
+}
+.justify-self-center{
+justify-self: center !important;
 }

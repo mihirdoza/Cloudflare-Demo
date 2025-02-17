@@ -14,8 +14,8 @@ function App() {
     <div className="nz-app-container">
       <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home></Home>}></Route>
-        <Route path='/upload' element={<Upload></Upload>}></Route>
+        <Route path='/search' element={<Home></Home>}></Route>
+        <Route path='/' element={<Upload></Upload>}></Route>
 
 
       </Routes>

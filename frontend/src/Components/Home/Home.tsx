@@ -247,13 +247,13 @@ const filterAttribute=valueOfKey(filterByAttribute,selectFBA)
 
           <div className="d-flex justify-content-between align-items-center ">
             <h3 className="">  <Label uniqueName={"Manufacturer Search"} label={"Manufacturer Search"}></Label></h3>
-            <Button onClick={() => { navigate("/upload") }} variant={'contained'}  className='upload-btn'>
-               <Label uniqueName={"Upload"} label={"Upload"}></Label>
+            <Button onClick={() => { navigate("/") }} variant={'contained'}  className='upload-btn'>
+               <Label uniqueName={"Manage DataBase"} label={"Manage DataBase"}></Label>
             </Button>
           </div>
           <p className='errMsg'>{err!==""&&err.error}</p>
           <SearchControl {...searchControlProps} SelectedRightMouseItem={SelectedFilter} searchInputValue={lensValue} handleLensMouse={handleLensMouse} handleFilterMouse={handleFilterMouse} searchValueChange={searchValueChange} isShowFilterControl={false}></SearchControl>
-          <ToggleControl uniqueName={"Include Releted"} isRenderAsForm={true} value={`${isRelated}`} label={"Include Releted"}  handleValueChange={HandleRelatedValue} ></ToggleControl>
+          <ToggleControl uniqueName={"Include Releted"} isRenderAsForm={true} value={`${isRelated}`} label={"Include Related"}  handleValueChange={HandleRelatedValue} ></ToggleControl>
           <ComboboxControl isRenderAsForm={false} uniqueName='Manufacturer' label={`Manufacturer  (${manufacturers.length})`} value={selectedManufacturer} optionsData={manufacturers?.length > 0 ? manufacturers : []} type='string' handleValueChange={(value, action) => {
             console.log("Combobox changed:", value, action);
 
