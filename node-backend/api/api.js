@@ -946,13 +946,13 @@ export const SelectedManufacturer = async (req, res) => {
   try {
     const db = await req.db;
     const {
-      selectedManufacturer = "",
-      selectedEquipmentType = "",
-      selectedProductLine = "",
-      selectedProductNumber = "",
-      keywords = "",
-      condition = "OR",
-      isRelated = false,
+      selectedManufacturer ,
+      selectedEquipmentType ,
+      selectedProductLine ,
+      selectedProductNumber ,
+      keywords ,
+      condition ,
+      isRelated ,
       filterAttribute,
     } = req.body;
 
@@ -977,7 +977,7 @@ export const SelectedManufacturer = async (req, res) => {
             params: [selectedManufacturer],
           }
         );
-
+          console.log("relatedQuery=>",relatedManufacturers.result[0].results)
         if (relatedManufacturers.result[0].results.length > 0) {
           manufacturers.push(
             ...relatedManufacturers.result[0].results.map(
@@ -1063,12 +1063,14 @@ export const SelectedManufacturer = async (req, res) => {
               params: [...queryParams, ...keywordParams],
             }
           );
-
+          
           results = response.result[0].results;
           if (results.length > 0) {
             return res.status(200).json( results);
           }
+          else{
           return res.status(200).json( results);
+        }
         } catch (err) {
           logData.push(err.message);
           return res.status(400).json({ error: err.message, logData });
