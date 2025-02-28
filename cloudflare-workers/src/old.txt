@@ -1,0 +1,167 @@
+import { Hono } from 'hono';
+import { ErrorMessage } from './common/common';
+import {
+	ClearDataBaseTables,
+	EquipmentType,
+	ExportDataBase,
+	GetDetails,
+	GetRelatedDetails,
+	GetTables,
+	ImportDataBase,
+	Manufacturer,
+	SelectedManufacturer,
+	UploadTable,
+} from './api/api';
+const app = new Hono();
+
+/**
+ * CORS Middleware
+ */
+app.use('*', async (c, next) => {
+	await next();
+	c.res.headers.set('Access-Control-Allow-Origin', '*');
+	c.res.headers.set('Access-Control-Allow-Methods', 'POST,DELETE,OPTIONS');
+	c.res.headers.set('Access-Control-Allow-Headers', 'Authorization, Content-Type');
+	if (c.req.method === 'OPTIONS') {
+		return c.text('', 204);
+	}
+});
+
+app.onError((err, c) => {
+	console.log(err.message);
+
+	const status = err instanceof ErrorMessage ? err.status : 500;
+	return c.json({ error: err.message, status }, status);
+});
+
+app.post('/upload', UploadTable);
+
+app.post('/manufacturer', Manufacturer);
+
+app.get('/tables', GetTables);
+
+app.post('/equipment', EquipmentType);
+
+app.post('/selected_manufacturer', SelectedManufacturer);
+
+app.post('/get_details', GetDetails);
+
+app.post('/get_related_details', GetRelatedDetails);
+
+app.delete('/clear-database', ClearDataBaseTables);
+
+app.get("/export",ExportDataBase)
+
+app.post("/import",ImportDataBase)
+
+app.get('/', async (c) => {
+	return c.json({ message: 'Hello World' });
+});
+
+
+const CLOUDFLARE_ACCOUNT_ID = "dd9b190e5bb824e610cd76610082c40b";
+const CLOUDFLARE_API_TOKEN = "z55k_YOC2wf7ftOF1D8DYOHqTkDLqlxrvsVR1ZJm";
+const WORKER_NAME = "workers"; // Your worker name
+
+let storedScript = null; // Stores the worker script once
+
+app.post("/bind-database", async (c) => {
+  try {
+    const { databaseId } = await c.req.json();
+    if (!databaseId) {
+      return c.json({ error: "Missing 'databaseId' in request body" }, 400);
+    }
+
+    // Step 1: Fetch and Store the Worker script (only if not stored)
+    if (!storedScript) {
+      console.log("🔍 Fetching the Worker script...");
+      const scriptResponse = await fetch(
+        `https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/workers/scripts/${WORKER_NAME}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${CLOUDFLARE_API_TOKEN}`,
+          },
+        }
+      );
+
+      if (!scriptResponse.ok) {
+        const errorDetails = await scriptResponse.json();
+        return c.json({ error: "Failed to fetch existing Worker script", details: errorDetails }, 500);
+      }
+
+      const rawScriptData = await scriptResponse.text();
+console.log("rowScript==>",rawScriptData.slice(0,600))
+      async function extractScriptFromMultipart(rawData) {
+        const match = rawData.match(/Content-Disposition: form-data; name="index\.js"\s+([\s\S]*)/);
+        if (match && match[1]) {
+          return match[1].trim();
+        }
+        throw new Error("Could not extract JavaScript script from response");
+      }
+
+      storedScript = await extractScriptFromMultipart(rawScriptData);
+
+      console.log("storedScript==>",storedScript.slice(0,600))
+      console.log("✅ Script stored for future use.");
+    } else {
+      console.log("⚡ Using stored script to update bindings.");
+    }
+
+    // Step 2: Prepare the metadata with database binding (only update metadata)
+    const bindingData = {
+      "main_module": "worker.js",
+      "bindings": [
+        {
+          "type": "d1",
+          "name": "DB",
+          "id": databaseId,
+        },
+      ],
+    };
+
+    // Step 3: Prepare the form data (Reusing stored script)
+    const formData = new FormData();
+    formData.append("metadata", new Blob([JSON.stringify(bindingData)], { type: "application/json" }), "metadata.json")
+    formData.append("script", new Blob([storedScript], { type: "application/javascript+ESmodule" }), "worker.js")
+
+    // Step 4: Deploy the updated Worker
+    const deployResponse = await fetch(
+      `https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/workers/scripts/${WORKER_NAME}`,
+      {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${CLOUDFLARE_API_TOKEN}`,
+        },
+        body: formData,
+      }
+    );
+
+    const deployResult = await deployResponse.json();
+
+    if (deployResponse.ok) {
+      return c.json({
+        message: "D1 Database bound successfully (Only metadata updated)",
+        result: deployResult,
+      });
+    } else {
+      return c.json({
+        error: "Failed to deploy Worker with updated binding",
+        details: deployResult,
+      }, 500);
+    }
+  } catch (error) {
+    return c.json({ error: "Invalid request", details: error.message }, 400);
+  }
+});
+
+
+  
+
+
+  
+  
+
+
+
+export default app;

@@ -59,12 +59,11 @@ export default {
           const databaseId = match[1]; // Extracted database ID
           return deleteDatabase(request,databaseId);}
       
-          const matchPurgeTable = url.pathname.match(/^\/purge-tables\/([^/]+)$/);
 
-          if (matchPurgeTable) {
-            const databaseId1 = matchPurgeTable[1]; // Extracts the ID from URL
-            return RemoveAllTables(request, env,databaseId1); // Call function with extracted ID
-          }
+      if(url.pathname==="/purge-tables"){
+        
+        return RemoveAllTables(request,env);
+      }
     }
 
     return new Response('Not Found', { status: 404 });
@@ -92,7 +91,7 @@ const corsHeaders = {
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type, Authorization',
   'Access-Control-Allow-Credentials': 'true', // Ensures CORS works with credentials
- 
+  'Content-Type': 'application/json'
 };
 
 
@@ -440,7 +439,6 @@ async function requestExportURL(database_id) {
       throw new Error(responseData.errors[0].message);
     }
   } catch (error) {
-    console.log("requestExportURL",requestExportURL)
     console.error("Error getting export URL:", error.message || error);
     throw error;
   }
@@ -477,14 +475,12 @@ async function exportDatabase(request, env) {
   } catch (error) {
     logData.push(error.message);
     console.error("Error streaming SQL file:", error.message || error);
-    
     return new Response(JSON.stringify({
       message: error.message || "Server Error",
       logData
     }), {
       status: 500,
-      headers: corsHeaders,
-      statusText:error
+      headers: corsHeaders
     });
   }
 }
@@ -758,24 +754,19 @@ async function importDatabase(request, env) {
 
 async function uploadJsonDatabase(request, env) {
   const logData = [];
-
+  
   try {
     const formData = await request.formData();
     const database_id = formData.get("database_id");
     const files = formData.getAll("files"); // Get multiple files
 
     if (!files || files.length === 0) {
-      logData.push("No files uploaded.");
-      return new Response(JSON.stringify({ message: "No files uploaded", logData }), { status: 400, headers: corsHeaders });
+      logData.push("No files uploaded");
+      return new Response(JSON.stringify({ message: "No files uploaded", logData }), { status: 400 });
     }
 
     for (const file of files) {
-      if (!(file instanceof File)) {
-        logData.push(`Invalid file object received: ${JSON.stringify(file)}`);
-        continue;
-      }
-
-      const arrayBuffer = await file.arrayBuffer();
+      let arrayBuffer = await file.arrayBuffer();
       let fileBuffer = new Uint8Array(arrayBuffer);
       const fileName = file.name;
       const fileExtension = fileName.split(".").pop();
@@ -783,7 +774,7 @@ async function uploadJsonDatabase(request, env) {
       if (fileExtension !== "sql") {
         try {
           const jsonData = JSON.parse(new TextDecoder().decode(fileBuffer));
-          const sqlData = jsonToSQL(jsonData);
+          const sqlData = jsonToSQL(jsonData); // Convert JSON to SQL
           fileBuffer = new TextEncoder().encode(sqlData);
         } catch (error) {
           logData.push(`Invalid JSON file: ${fileName}`);
@@ -792,33 +783,32 @@ async function uploadJsonDatabase(request, env) {
       }
 
       const etag = await crypto.subtle.digest("MD5", fileBuffer);
-      const etagHex = Array.from(new Uint8Array(etag)).map(b => b.toString(16).padStart(2, "0")).join("");
+      const etagHex = Array.from(new Uint8Array(etag)).map(b => b.toString(16).padStart(2, '0')).join('');
 
+      console.log(`🔹 Requesting upload URL for ${fileName}...`);
       const initData = await requestUploadURL(etagHex, database_id);
+
       if (!initData.success) {
         logData.push(`Failed to get upload URL for ${fileName}: ${initData.error}`);
         continue;
       }
 
-      const uploadSQLFileRes = await uploadSQLFile(initData.upload_url, fileBuffer);
-      if (uploadSQLFileRes) {
-        logData.push(`✅ Successfully uploaded: ${fileName}`);
+      console.log(`🔹 Uploading ${fileName}...`);
+      const uploadSQLFileres = await uploadSQLFile(initData.upload_url, fileBuffer);
+
+      if (uploadSQLFileres) {
+        console.log(`✅ ${fileName} uploaded successfully`);
       } else {
-        logData.push(`❌ Failed to upload: ${fileName}`);
+        logData.push(`Failed to upload ${fileName}`);
       }
     }
 
-    return new Response(JSON.stringify({ message: "Files processed", logData }), { status: 200, headers: corsHeaders });
+    return new Response(JSON.stringify({ message: "Files processed", logData }), { status: 200 });
   } catch (error) {
     console.error("Upload failed:", error);
-    return new Response(JSON.stringify({ message: "Upload failed", error: error.message, logData }), { status: 500, headers: corsHeaders });
+    return new Response(JSON.stringify({ message: "Upload failed", error: error.message, logData }), { status: 500 });
   }
 }
-
-
-
-
-
 
 // Mock JSON-to-SQL function
 function jsonToSQL(jsonData) {
@@ -907,9 +897,9 @@ async function downloadJsonDatabase(request, env) {
 
 
 
-async function RemoveAllTables(request, env,database_id) {
+async function RemoveAllTables(request, env) {
   try {
- 
+    const { database_id } = await request.json();
 
     if (!database_id) {
       return new Response(JSON.stringify({ message: "Missing database_id in request body" }), {
@@ -934,11 +924,10 @@ async function RemoveAllTables(request, env,database_id) {
     );
 
     const tablesData = await getTablesResponse.json();
-    console.log("tablesData",tablesData)
     if (!getTablesResponse.ok || !tablesData.result || !tablesData.result[0]?.results.length) {
       return new Response(JSON.stringify({ message: "No tables found" }), {
         status: 404,
-        headers: corsHeaders,
+        headers: { "Content-Type": "application/json" },
       });
     }
 
@@ -962,7 +951,6 @@ async function RemoveAllTables(request, env,database_id) {
       );
 
       const dropTableData = await dropTableResponse.json();
-      console.log("dropTableData",dropTableData)
       if (dropTableResponse.ok) {
         deletedTables.push(tableName);
       } else {
@@ -972,13 +960,13 @@ async function RemoveAllTables(request, env,database_id) {
 
     return new Response(JSON.stringify({ message: "All tables deleted", deletedTables }), {
       status: 200,
-      headers: corsHeaders,
+      headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
     console.error("Table deletion failed:", error);
     return new Response(JSON.stringify({ message: "Table deletion failed", error: error.message }), {
       status: 500,
-      headers: corsHeaders,
+      headers: { "Content-Type": "application/json" },
     });
   }
 }

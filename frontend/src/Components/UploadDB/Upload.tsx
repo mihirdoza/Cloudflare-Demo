@@ -180,18 +180,18 @@ const Upload = () => {
     setResponseMessage("")
     setLogData([])
     console.log(file, selectedTable)
-    if (file.length === 0 || selectedTable === "") {
-      if (file.length === 0 && selectedTable === "") {
-        alert("Please select a file to upload \nAdd Table Name")
-      }
-      else if (file.length === 0) {
-        alert("Please select a file to upload")
-      }
-      else {
-        alert("Add Table Name")
-      }
-      return;
-    }
+    // if (file.length === 0 || selectedTable === "") {
+    //   if (file.length === 0 && selectedTable === "") {
+    //     alert("Please select a file to upload \nAdd Table Name")
+    //   }
+    //   else if (file.length === 0) {
+    //     alert("Please select a file to upload")
+    //   }
+    //   else {
+    //     alert("Add Table Name")
+    //   }
+    //   return;
+    // }
     setLoading(true)
     const formData = new FormData();
 
@@ -220,7 +220,7 @@ const Upload = () => {
             const fileObj = new File([fileBlob], `${item.fileName}.json`, { type: `application/json` });
 
             // Append to FormData
-            formData.append("file", fileObj);
+            formData.append("files", fileObj);
           } catch (error) {
 
             console.error(`Error processing file at index ${index}:`, error);
@@ -232,11 +232,11 @@ const Upload = () => {
     } else {
       console.error("Unexpected file data format:", file);
     }
-
-    formData.append("tableName", selectedTable);
+    formData.append("database_id","0e3f5241-4901-44d3-8ea8-2dd22692a180" );
+    // formData.append("tableName", selectedTable);
     const startTime = performance.now();
     try {
-      const response = await fetch(`${Base_Url}/upload`, {
+      const response = await fetch(`${Base_Url}/database-upload-json`, {
         method: "POST",
         body: formData,
       });

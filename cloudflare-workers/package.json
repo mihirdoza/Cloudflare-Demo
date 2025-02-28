@@ -7,7 +7,7 @@
     "dev": "wrangler dev",
     "start": "wrangler dev",
     "test": "vitest",
-    "build": "esbuild src/index.js --bundle --format=esm --outfile=dist/index.js"
+    "build": "esbuild src/index.js --bundle --format=esm --outfile=dist/index.js --platform=browser --external:jszip"
   },
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "^0.5.2",

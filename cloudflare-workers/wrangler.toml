@@ -3,6 +3,8 @@ name = "workers"
 main = "dist/index.js"
 compatibility_date = "2024-12-30"
 compatibility_flags = ["nodejs_compat"]
+type = "javascript"
+
 
 # Workers Logs
 # Docs: https://developers.cloudflare.com/workers/observability/logs/workers-logs/
@@ -17,6 +19,10 @@ enabled = true
 
 [placement]
 mode = "smart"
+
+[build]
+command = "esbuild src/index.js --bundle --format=esm --outfile=dist/index.js --platform=browser --external:jszip --target=es2022"
+main = "dist/index.js"
 
 
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
@@ -49,8 +55,8 @@ mode = "smart"
 
 # demo database
 binding = "DB"
-database_name = "demo"
-database_id = "72a56221-9549-47d4-89e2-caa8d005798f"
+database_name = "netzoom"
+database_id = "0d3004f4-b224-4635-9f43-03923639efd0"
 
 # working database
 #binding = "DB"
@@ -124,8 +130,7 @@ database_id = "72a56221-9549-47d4-89e2-caa8d005798f"
 # binding = "MY_INDEX"
 # index_name = "my-index"
 
-[build]
-command = "npm run build"
+
 
 
 
