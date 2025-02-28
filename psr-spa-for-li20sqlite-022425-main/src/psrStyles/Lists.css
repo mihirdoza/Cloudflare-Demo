@@ -1,0 +1,67 @@
+@layer components {
+  .psr-list-parent-1 {
+    @apply max-w-xs flex flex-col;
+  }
+
+  .psr-list-parent-1 li {
+    @apply inline-flex items-center font-medium odd:bg-gray-100 bg-white border border-gray-200 text-gray-800 -mt-px first:rounded-t-lg first:mt-0 last:rounded-b-lg dark:odd:bg-neutral-800 dark:bg-neutral-900 dark:border-neutral-700 dark:text-white;
+    /* ToDo: set text size as per diffrent screen */
+    @apply text-sm;
+    /* ToDo: set list item spacing as per diffrent screen */
+    @apply gap-x-2 py-3 px-4;
+  }
+
+  .psr-list-parent-1 li a {
+    @apply text-blue-600 dark:text-blue-500 hover:underline;
+    /* ToDo: set text size as per diffrent screen */
+    /* @apply text-base; */
+    /* ToDo: set text style as per diffrent screen */
+    @apply font-medium;
+  }
+}
+
+.psr-list-box-parent-container {
+  @apply component-container;
+}
+
+.psr-list-box-container {
+  @apply overflow-hidden;
+}
+.psr-list-box-parent-container .psr-label:first-child {
+  @apply psr-space-nill;
+}
+.psr-list-box-parent-container .psr-label:last-child {
+  @apply pt-0.5 mt-0;
+}
+
+.psr-list-box {
+  @apply w-full h-[calc(100%-50px)] max-h-[calc(100%-50px)];
+}
+.psr-list-box-search-form {
+  @apply mx-auto w-full;
+}
+
+.psr-list-box-search-input {
+  @apply block w-full p-3 ps-4 text-sm;
+  @apply text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+}
+
+.psr-list-box-search-icon-svg {
+  @apply w-4 h-4;
+}
+
+.psr-list-box-search-button {
+  /* @apply bg-transparent; */
+  @apply cursor-pointer;
+  @apply font-medium rounded-lg text-sm px-4 py-1 h-full;
+  @apply text-white absolute end-0 bottom-0 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800;
+}
+
+.psr-list-box-list {
+  @apply h-[calc(100%-32px)] pl-0 border-t-0 border-2 border-gray-300;
+  @apply overflow-auto max-h-70;
+}
+
+.psr-list-box-list li {
+  @apply block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer rounded-md;
+}

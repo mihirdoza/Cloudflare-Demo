@@ -1,0 +1,115 @@
+@layer components {
+  .psr-label {
+    @apply block bg-transparent dark:bg-transparent overflow-hidden whitespace-nowrap overflow-ellipsis max-w-full;
+    /* /text size from Text.css as per diffrent screen/ */
+    @apply text-medium sm:text-small md:text-medium lg:text-large xl:text-xtraLarge;
+    /* Label Text color */
+    @apply text-gray-900 dark:text-gray-300;
+  }
+}
+
+@layer components {
+  .psr-action-label {
+    @apply justify-items-start align-middle flex cursor-pointer;
+    /* @apply m-auto p-1; */
+  }
+
+  .psr-action-label-selected {
+    /* From Theme.css */
+    @apply background-selected-item;
+  }
+
+  .psr-action-label-selected label {
+    /* From Theme.css */
+    @apply text-primary-rev;
+  }
+
+  .psr-action-label label {
+    @apply cursor-pointer flex-auto align-middle;
+    /* /text size from Text.css as per diffrent screen/ */
+    @apply text-medium sm:text-small md:text-medium lg:text-large xl:text-xtraLarge;
+    /* action label spacing */
+    @apply m-auto p-1;
+  }
+
+  .psr-action-label .psr-image {
+    @apply size-7 sm:size-6 md:size-7 lg:size-8 xl:size-9;
+    /* action label spacing */
+    @apply m-auto p-1;
+  }
+
+  .psr-action-label.psr-disabled {
+    @apply pointer-events-none cursor-none opacity-80;
+  }
+
+  .psr-action-label:has(.psr-image) {
+    @apply justify-evenly;
+  }
+
+  .psr-action-label-strip-container {
+    @apply flex flex-row justify-start align-middle items-center overflow-hidden;
+    @apply h-full w-full;
+  }
+
+  .psr-action-label-strip-container.psr-strip-vertical {
+    @apply flex-col align-middle items-center h-full;
+  }
+
+  .psr-action-label-strip-container.psr-strip-horizontal {
+    @apply flex-row w-full;
+  }
+
+  .psr-action-label-strip-container .psr-action-label {
+    @apply w-full justify-center content-center items-center text-center;
+  }
+
+  .psr-action-list-container {
+    @apply flex flex-col h-full;
+  }
+  .psr-action-list-container.psr-action-with-buttons .psr-list-data {
+    @apply h-[calc(100%-30px)] overflow-hidden overflow-y-auto;
+  }
+  .psr-action-panel {
+    /* @apply flex h-[40px]; */
+    @apply flex h-10;
+  }
+  .psr-action-list-container .psr-list-data .psr-action-label-container {
+    /* @apply pl-[5px]; */
+    @apply pl-1.5;
+  }
+  .psr-action-list-container .psr-strip-vertical {
+    @apply overflow-visible;
+  }
+  .psr-action-list-container .psr-list-data {
+    @apply h-full overflow-hidden overflow-y-auto;
+  }
+  .psr-action-panel .psr-action-image-container {
+    @apply m-0.5 p-0;
+  }
+  .psr-action-panel .psr-action-image-container .psr-image {
+    @apply size-6 sm:size-4 md:size-5 lg:size-6 xl:size-7;
+  }
+
+  /* /ToShow Text/ */
+  .psr-form-control-labeled {
+    /* padding-left: 5px;
+    padding-right: 5px; */
+    @apply pl-2 pr-2 w-full flex flex-col;
+  }
+  .psr-form-control-labeled-first {
+    @apply text-medium sm:text-small md:text-medium lg:text-large xl:text-large;
+  }
+  .psr-form-control-labeled-last {
+    @apply text-small sm:text-small md:text-small lg:text-small xl:text-small;
+  }
+  .psr-form-control-labeled .psr-label:first-child {
+    @apply pb-1;
+  }
+  .psr-form-control-labeled .psr-label:last-child {
+    @apply pt-1;
+  }
+  .psr-fc-label-control {
+    /* @apply pl-2 leading-[28px] min-h-[28px] border-gray-300 border-2 w-full; */
+    @apply pl-2 leading-7 min-h-7 border-gray-300 border-2 w-full;
+  }
+}

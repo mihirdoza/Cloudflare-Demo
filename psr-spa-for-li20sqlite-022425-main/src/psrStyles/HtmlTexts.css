@@ -1,0 +1,65 @@
+/* @import "./Text.css"; */
+
+@utility para-small {
+  @apply text-small;
+}
+
+@utility para-medium {
+  @apply text-medium;
+}
+
+@utility para-large {
+  @apply text-large;
+}
+
+@utility para-xtraLarge {
+  @apply text-large;
+}
+
+@utility text-theme-color {
+  @apply text-primary;
+}
+
+@utility psr-hyperlink {
+  @apply font-medium text-blue-600 dark:text-blue-500 hover:underline;
+}
+
+@layer components {
+  .psr-p {
+    @apply text-medium sm:para-small md:para-medium lg:para-large xl:para-large text-theme-color;
+  }
+
+  .psr-li {
+    @apply text-medium sm:para-small md:para-medium lg:para-large xl:para-xtraLarge text-theme-color;
+  }
+  .psr-h1 {
+    @apply text-medium font-extrabold sm:para-small md:para-medium lg:para-large xl:para-xtraLarge text-theme-color;
+  }
+  .psr-h2 {
+    @apply text-medium font-bold sm:para-small md:para-medium lg:para-large xl:para-xtraLarge text-theme-color;
+  }
+  .psr-h3 {
+    @apply text-medium font-semibold sm:para-small md:para-medium lg:para-large xl:para-xtraLarge text-theme-color;
+  }
+  .psr-h4 {
+    @apply text-medium font-medium sm:para-small md:para-medium lg:para-large xl:para-xtraLarge text-theme-color;
+  }
+  .psr-h5 {
+    @apply text-medium font-normal sm:para-small md:para-medium lg:para-large xl:para-xtraLarge text-theme-color;
+  }
+
+  .psr-hyper-link-container {
+    @apply flex flex-col;
+    /* from spacing.css */
+    @apply psr-link-container-space;
+  }
+  .psr-hyper-link-container .psr-label {
+    @apply psr-link-label-space;/* from spacing.css */
+  }
+  .psr-hyper-link-container .psr-hyperlink {
+    @apply h-7 leading-7;
+    @apply psr-link-hyperlink-space;/* from spacing.css */
+    @apply text-medium sm:text-small md:text-medium lg:text-large xl:text-large;
+  }
+}
+

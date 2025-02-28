@@ -1,0 +1,14 @@
+.form-control-labeled{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.form-control-labeled .nz-label-container:first-child{
+    padding-bottom: 2px;
+}
+.form-control-labeled .nz-label-container:last-child{
+    padding-top: 2px;
+}
+
+.sqlite-page-div-container>.form-control-labeled{
+    padding-left:0px !important
+}

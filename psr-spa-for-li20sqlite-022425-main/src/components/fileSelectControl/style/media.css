@@ -1,0 +1,373 @@
+@media (max-width: 1599px) {
+}
+@media (max-width: 1439px) {
+}
+@media (max-width: 1365px) {
+}
+@media (max-width: 1240px) {
+}
+@media (max-width: 1199px) {
+}
+@media (max-width: 1023px) {
+}
+@media (max-width: 991px) {
+    .nz-header-tagline {
+        display: none;
+    }
+}
+@media (max-width: 767px) {
+    .nz-header-tagline {
+        display: none;
+    }
+}
+@media (max-width: 575px) {
+    .nz-header-tagline {
+        display: none;
+    }
+}
+
+@media (forced-colors: active) {
+}
+
+@media (forced-colors: active) {
+    .rc-tree-node-selected,
+    .instance-left-pane,
+    .nz-fqa-container,
+    .nz-form-title-bar,
+    .nz-entity-pane {
+        border: 1px solid CanvasText;
+    }
+    .instance-left-pane .instance-list ul li.active {
+        border: 1px solid CanvasText;
+    }
+    .nz-save-btn-azure {
+        border: 1px solid CanvasText !important;
+        border-radius: 4px !important;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: CanvasText;
+    }
+    .form-control-labeled .react-numeric-input b i {
+        forced-color-adjust: none;
+        border-color: transparent transparent CanvasText !important;
+    }
+    .form-control-labeled .react-numeric-input b:last-child i {
+        forced-color-adjust: none;
+        border-color: CanvasText transparent transparent !important;
+    }
+
+    button.MuiTab-root.MuiTab-textColorPrimary.Mui-selected {
+        border: 1px solid CanvasText;
+        z-index: 9;
+    }
+
+    .nz-nav-li-menu svg path,
+    .nz-nav-li-menu svg line,
+    .nz-nav-li-menu svg circle,
+    .nz-nav-li-menu svg rect,
+    .nz-nav-li-menu svg polyline,
+    .nz-nav-li-menu svg ellipse,
+    .nz-nav-li-menu svg polygon,
+    .nz-nav-sub-menu svg path,
+    .nz-nav-sub-menu svg line,
+    .nz-nav-sub-menu svg circle,
+    .nz-nav-sub-menu svg rect,
+    .nz-nav-sub-menu svg polyline,
+    .nz-nav-sub-menu svg ellipse,
+    .nz-nav-sub-menu svg polygon {
+        stroke: CanvasText !important;
+        fill: none !important;
+    }
+
+    #nz_action_bar li.nz-action-li svg path,
+    #nz_action_bar li.nz-action-li svg line,
+    #nz_action_bar li.nz-action-li svg circle,
+    #nz_action_bar li.nz-action-li svg rect,
+    #nz_action_bar li.nz-action-li svg polyline,
+    #nz_action_bar li.nz-action-li svg ellipse,
+    #nz_action_bar li.nz-action-li svg polygon {
+        stroke: CanvasText;
+    }
+
+    #nz_action_bar li.nz-action-li:hover svg path,
+    #nz_action_bar li.nz-action-li:hover svg line,
+    #nz_action_bar li.nz-action-li:hover svg circle,
+    #nz_action_bar li.nz-action-li:hover svg rect,
+    #nz_action_bar li.nz-action-li:hover svg polyline,
+    #nz_action_bar li.nz-action-li:hover svg ellipse,
+    #nz_action_bar li.nz-action-li:hover svg polygon {
+        stroke: CanvasText;
+    }
+    #nz_action_bar li.nz-action-li .Mui-selected.nz-action-li-btn {
+        border: 1px solid CanvasText;
+    }
+
+    .nz-fqa-bar-box svg path,
+    .nz-fqa-bar-box svg line,
+    .nz-fqa-bar-box svg circle,
+    .nz-fqa-bar-box svg rect,
+    .nz-fqa-bar-box svg polyline,
+    .nz-fqa-bar-box svg ellipse,
+    .nz-fqa-bar-box svg polygon {
+        stroke: CanvasText;
+    }
+    .nz-fqa-bar-box.nz-active svg path,
+    .nz-fqa-bar-box.nz-active svg line,
+    .nz-fqa-bar-box.nz-active svg circle,
+    .nz-fqa-bar-box.nz-active svg rect,
+    .nz-fqa-bar-box.nz-active svg polyline,
+    .nz-fqa-bar-box.nz-active svg ellipse,
+    .nz-fqa-bar-box.nz-active svg polygon {
+        stroke: CanvasText;
+    }
+    .nz-fqa-bar-box:hover svg path,
+    .nz-fqa-bar-box:hover svg line,
+    .nz-fqa-bar-box:hover svg circle,
+    .nz-fqa-bar-box:hover svg rect,
+    .nz-fqa-bar-box:hover svg polyline,
+    .nz-fqa-bar-box:hover svg ellipse,
+    .nz-fqa-bar-box:hover svg polygon {
+        stroke: CanvasText;
+    }
+
+    .nz-fqa-bar-box.MuiBox-root {
+        height: 38px;
+    }
+
+    .Mui-selected.nz-nav-li-menu svg path,
+    .Mui-selected.nz-nav-li-menu svg line,
+    .Mui-selected.nz-nav-li-menu svg circle,
+    .Mui-selected.nz-nav-li-menu svg rect,
+    .Mui-selected.nz-nav-li-menu svg polyline,
+    .Mui-selected.nz-nav-li-menu svg ellipse,
+    .Mui-selected.nz-nav-li-menu svg polygon,
+    .Mui-selected.nz-nav-sub-menu svg path,
+    .Mui-selected.nz-nav-sub-menu svg line,
+    .Mui-selected.nz-nav-sub-menu svg circle,
+    .Mui-selected.nz-nav-sub-menu svg rect,
+    .Mui-selected.nz-nav-sub-menu svg polyline,
+    .Mui-selected.nz-nav-sub-menu svg ellipse,
+    .Mui-selected.nz-nav-sub-menu svg polygon {
+        stroke: CanvasText;
+        fill: none;
+    }
+
+    .nz-nav-li-menu:hover svg path,
+    .nz-nav-li-menu:hover svg line,
+    .nz-nav-li-menu:hover svg circle,
+    .nz-nav-li-menu:hover svg rect,
+    .nz-nav-li-menu:hover svg polyline,
+    .nz-nav-li-menu:hover svg ellipse,
+    .nz-nav-li-menu:hover svg polygon,
+    .nz-nav-sub-menu:hover svg path,
+    .nz-nav-sub-menu:hover svg line,
+    .nz-nav-sub-menu:hover svg circle,
+    .nz-nav-sub-menu:hover svg rect,
+    .nz-nav-sub-menu:hover svg polyline,
+    .nz-nav-sub-menu:hover svg ellipse,
+    .nz-nav-sub-menu:hover svg polygon {
+        stroke: CanvasText !important;
+        fill: none;
+    }
+
+    .nz-img-three-dots-rtm svg circle,
+    .nz-img-three-dots-rtm svg .st1,
+    .nz-nav-filter-icon-box svg .st0,
+    .nz-nav-filter-icon-box svg .st1,
+    .nz-filter-open-icon svg .st0,
+    .nz-filter-open-icon svg .st1,
+    .ng-sk-a-lens svg .st0,
+    .ng-sk-a-lens svg .st1,
+    .nz-sc-lens-icon svg circle,
+    .nz-sc-lens-icon svg line,
+    .nz-filter-apply-icon svg line {
+        stroke: CanvasText;
+    }
+    .nz-nav-help-icon svg .st0,
+    .nz-nav-help-icon svg .st1 {
+        stroke: CanvasText;
+    }
+
+    .nz-nav-burger {
+        color: CanvasText;
+    }
+
+    #nz_action_bar li.nz-action-li .ng-switch-class .MuiSwitch-track {
+        border: 1px solid CanvasText;
+    }
+    .nz-nav-open .nz-nav-link .Mui-selected::before {
+        background-color: CanvasText;
+    }
+
+    .ql-snow.ql-toolbar button .ql-stroke,
+    .ql-snow .ql-toolbar button .ql-stroke,
+    .ql-snow.ql-toolbar button:focus .ql-stroke,
+    .ql-snow .ql-toolbar button:focus .ql-stroke,
+    .ql-snow.ql-toolbar button.ql-active .ql-stroke,
+    .ql-snow .ql-toolbar button.ql-active .ql-stroke,
+    .ql-snow.ql-toolbar .ql-picker-label .ql-stroke,
+    .ql-snow .ql-toolbar .ql-picker-label .ql-stroke,
+    .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+    .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+    .ql-snow.ql-toolbar .ql-picker-item .ql-stroke,
+    .ql-snow .ql-toolbar .ql-picker-item .ql-stroke,
+    .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+    .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+    .ql-snow.ql-toolbar button .ql-stroke-miter,
+    .ql-snow .ql-toolbar button .ql-stroke-miter,
+    .ql-snow.ql-toolbar button:focus .ql-stroke-miter,
+    .ql-snow .ql-toolbar button:focus .ql-stroke-miter,
+    .ql-snow.ql-toolbar button.ql-active .ql-stroke-miter,
+    .ql-snow .ql-toolbar button.ql-active .ql-stroke-miter,
+    .ql-snow.ql-toolbar .ql-picker-label .ql-stroke-miter,
+    .ql-snow .ql-toolbar .ql-picker-label .ql-stroke-miter,
+    .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+    .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+    .ql-snow.ql-toolbar .ql-picker-item .ql-stroke-miter,
+    .ql-snow .ql-toolbar .ql-picker-item .ql-stroke-miter,
+    .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
+    .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
+        stroke: CanvasText !important;
+    }
+
+    .ql-snow.ql-toolbar button:hover .ql-stroke,
+    .ql-snow .ql-toolbar button:hover .ql-stroke,
+    .ql-snow.ql-toolbar button:focus .ql-stroke,
+    .ql-snow .ql-toolbar button:focus .ql-stroke,
+    .ql-snow.ql-toolbar button.ql-active .ql-stroke,
+    .ql-snow .ql-toolbar button.ql-active .ql-stroke,
+    .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke,
+    .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke,
+    .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+    .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke,
+    .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke,
+    .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke,
+    .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+    .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,
+    .ql-snow.ql-toolbar button:hover .ql-stroke-miter,
+    .ql-snow .ql-toolbar button:hover .ql-stroke-miter,
+    .ql-snow.ql-toolbar button:focus .ql-stroke-miter,
+    .ql-snow .ql-toolbar button:focus .ql-stroke-miter,
+    .ql-snow.ql-toolbar button.ql-active .ql-stroke-miter,
+    .ql-snow .ql-toolbar button.ql-active .ql-stroke-miter,
+    .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+    .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,
+    .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+    .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,
+    .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+    .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,
+    .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,
+    .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
+        stroke: CanvasText !important;
+    }
+
+    .ql-snow.ql-toolbar button:hover .ql-fill,
+    .ql-snow .ql-toolbar button:hover .ql-fill,
+    .ql-snow.ql-toolbar button:focus .ql-fill,
+    .ql-snow .ql-toolbar button:focus .ql-fill,
+    .ql-snow.ql-toolbar button.ql-active .ql-fill,
+    .ql-snow .ql-toolbar button.ql-active .ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-label:hover .ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-label:hover .ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-item:hover .ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-item:hover .ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+    .ql-snow.ql-toolbar button:hover .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar button:hover .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar button:focus .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar button:focus .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar button.ql-active .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar button.ql-active .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-label:hover .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-item:hover .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
+        fill: CanvasText !important;
+    }
+    .ql-snow.ql-toolbar button .ql-fill,
+    .ql-snow .ql-toolbar button .ql-fill,
+    .ql-snow.ql-toolbar button:focus .ql-fill,
+    .ql-snow .ql-toolbar button:focus .ql-fill,
+    .ql-snow.ql-toolbar button.ql-active .ql-fill,
+    .ql-snow .ql-toolbar button.ql-active .ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-label .ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-label .ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-item .ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-item .ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-fill,
+    .ql-snow.ql-toolbar button .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar button .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar button:focus .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar button:focus .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar button.ql-active .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar button.ql-active .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-label .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-label .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-label.ql-active .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-item .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-item .ql-stroke.ql-fill,
+    .ql-snow.ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill,
+    .ql-snow .ql-toolbar .ql-picker-item.ql-selected .ql-stroke.ql-fill {
+        fill: CanvasText !important;
+    }
+
+    .nz-treeview-img-auth svg path,
+    .nz-treeview-img-auth svg line,
+    .nz-treeview-img-auth svg circle,
+    .nz-treeview-img-auth svg rect,
+    .nz-treeview-img-auth svg polyline,
+    .nz-treeview-img-auth svg ellipse,
+    .nz-treeview-img-auth svg polygon {
+        stroke: CanvasText !important;
+    }
+    .nz-rt-menu .nz-feature-icon svg path,
+    .nz-rt-menu .nz-feature-icon svg line,
+    .nz-rt-menu .nz-feature-icon svg circle,
+    .nz-rt-menu .nz-feature-icon svg rect,
+    .nz-rt-menu .nz-feature-icon svg polyline,
+    .nz-rt-menu .nz-feature-icon svg ellipse,
+    .nz-rt-menu .nz-feature-icon svg polygon {
+        stroke: CanvasText !important;
+    }
+
+    .nz-popover-more-menu-box .nz-feature-icon svg path,
+    .nz-popover-more-menu-box .nz-feature-icon svg line,
+    .nz-popover-more-menu-box .nz-feature-icon svg circle,
+    .nz-popover-more-menu-box .nz-feature-icon svg rect,
+    .nz-popover-more-menu-box .nz-feature-icon svg polyline,
+    .nz-popover-more-menu-box .nz-feature-icon svg ellipse,
+    .nz-popover-more-menu-box .nz-feature-icon svg polygon {
+        stroke: CanvasText !important;
+    }
+
+    .nz-add-edit-row-dialog .nz-pgContact {
+        padding: 0px !important;
+    }
+    .nz-grid-popup-footer {
+        border: 1px solid CanvasText;
+    }
+    .nz-grid-popup-footer .nz-btn-disabled {
+        border: 1px solid CanvasText;
+        color: CanvasText !important;
+    }
+    .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiDialog-paper {
+        border: 1px solid CanvasText;
+    }
+    .MuiDialogActions-root {
+        border: 1px solid CanvasText;
+    }
+    .MuiDialogActions-root .nz-yes-btn {
+        border: 1px solid CanvasText;
+    }
+}

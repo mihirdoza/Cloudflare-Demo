@@ -1,0 +1,26 @@
+/* @import "./Text.css"; */
+
+@utility select-small{
+  @apply p-0.5 text-small;
+}
+
+@utility select-medium{
+  @apply p-1 text-medium;
+}
+
+@utility select-large{
+  @apply p-1.5 text-large;
+}
+
+@utility select-xtraLarge{
+  @apply p-1.5 text-xtraLarge
+}
+
+@layer components {
+  /* .psr-select {
+    @apply w-auto bg-gray-50 border border-gray-300 text-primary rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 select-medium sm:select-small md:select-medium lg:select-large xl:select-xtraLarge;
+  } */
+  /* .psr-select {
+    @apply html-inputs select-medium sm:select-small md:select-medium lg:select-large xl:select-xtraLarge;
+  } */
+}

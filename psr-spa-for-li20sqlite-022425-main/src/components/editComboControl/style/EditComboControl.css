@@ -1,0 +1,36 @@
+@import "../../../psrStyles/index.css";
+
+.form-control-labeled {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.MuiAutocomplete-listbox li {
+    min-height: 30px !important;
+    line-height: 30px;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+.nz-fc-readonly button {
+    cursor: default;
+    pointer-events: none;
+}
+.form-control-labeled .nz-label-container:first-child {
+    padding-bottom: 2px;
+}
+.form-control-labeled .nz-label-container:last-child {
+    padding-top: 2px;
+}
+.nz-edit-combo-container .MuiAutocomplete-root .MuiInputBase-root {
+    height: 30px;
+}
+.nz-edit-combo-container .MuiAutocomplete-root .MuiInputBase-input {
+    padding: 1px 1px 1px 3px !important;
+}
+.nz-edit-combo-container .form-control-labeled input {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+.nz-edit-combo-container .MuiInputBase-root{
+    padding-right: 60px !important;
+}

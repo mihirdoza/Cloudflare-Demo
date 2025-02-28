@@ -1,0 +1,72 @@
+.psr-list-vertical {
+  @apply flex-col align-middle items-center h-full;
+}
+
+.psr-list-horizontal {
+  @apply flex-row w-full;
+}
+
+.psr-image-action-selected {
+  /* from theme.css */
+  @apply text-selected-item background-selected-item;
+}
+
+@layer components {
+  .psr-action-image-container {
+    @apply cursor-pointer flex flex-col justify-evenly items-center align-middle overflow-hidden;
+    /* From Spacing.css */
+    @apply psr-action-image-spacing;
+  }
+  .psr-action-image-container.flex-at {
+    @apply justify-evenly flex-col-reverse;
+  }
+  .psr-action-image-container .psr-image {
+    @apply flex size-8 sm:size-7 md:size-8 lg:size-9 xl:size-9;
+    /* From Spacing.css */
+    @apply psr-space-nill;
+  }
+  .psr-action-image-container .psr-label {
+    @apply cursor-pointer;
+    /* From Spacing.css */
+    @apply psr-space-nill;
+  }
+  .psr-action-image-container.psr-disabled {
+    @apply pointer-events-none cursor-none opacity-0.5;
+  }
+
+  /* } */
+  /* /for action image list/ */
+  /* @layer components { */
+  .psr-action-image-list-container, .psr-action-image-strip-container {
+    @apply flex flex-row justify-start align-middle items-center overflow-hidden;
+    /* from spacing */
+    /* @apply psr-list-container; */
+    /* @apply psr-padding-style-1; */
+    /* @apply psr-space-nill; */
+  }
+
+  .psr-action-image-list-container .psr-action-image-container {
+    @apply justify-start flex-row content-start w-full cursor-pointer;
+  }
+
+  .psr-action-image-list-container .psr-action-image-container .psr-image {
+    @apply mr-1;
+  }
+
+  .psr-action-image-list-separator {
+    @apply w-full h-0.5 p-0 mx-1 my-0 border-1;
+    @apply background-other; /*from theme.css*/
+  }
+
+  /* .psr-action-image-strip-container {
+    @apply flex flex-row justify-start align-middle items-center overflow-hidden;
+  } */
+
+  .psr-action-image-strip-container .psr-action-image-container {
+    @apply justify-evenly px-4 py-1 m-1;
+    @apply sm:px-2 py-0.5 m-0.5;
+    @apply md:px-2 py-0.5 m-0.5;
+    @apply lg:px-4 py-1 m-1;
+    @apply xl:px-4 py-1 m-1;
+  }
+}

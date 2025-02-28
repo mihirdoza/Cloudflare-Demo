@@ -1,0 +1,35 @@
+@utility image-small {
+  @apply size-8;
+}
+
+@utility image-medium {
+  @apply size-9;
+}
+
+@utility image-large {
+  @apply size-10;
+}
+
+@utility image-xtraLarge {
+  @apply size-11;
+}
+
+@utility image-bg {
+  @apply bg-transparent;
+}
+
+@layer components {
+  .psr-image {
+    @apply items-center justify-center bg-transparent image-medium sm:image-small md:image-medium lg:image-large xl:image-xtraLarge;
+    /* For Svgs to set color */
+    @apply image-primary;
+    /* @apply image-secondary; */
+  }
+  
+  .psr-image img,
+  .psr-image svg,
+  .psr-image div svg {
+    @apply size-full;
+  }
+  /*spacing around image will be handle by parent container*/
+}

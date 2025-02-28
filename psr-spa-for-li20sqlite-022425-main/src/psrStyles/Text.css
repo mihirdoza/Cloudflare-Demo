@@ -1,0 +1,20 @@
+@utility text-small {
+  @apply text-xs;
+  /* @apply text-[12px];  */
+}
+
+@utility text-medium {
+  @apply text-sm;
+  /* @apply text-[13px];  */
+}
+
+@utility text-large {
+  @apply text-base;
+  /* @apply text-[14px]; */
+}
+
+@utility text-xtraLarge {
+  @apply text-lg;
+  /* @apply text-[15px]; */
+}
+/* TooDo */
