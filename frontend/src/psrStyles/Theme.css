@@ -1,0 +1,219 @@
+/*To Code Theme Level Utility*/
+
+@utility text-primary {
+  @apply text-black dark:text-white;
+}
+
+@utility text-secondary {
+  @apply text-gray-800 dark:text-gray-400;
+}
+
+@utility text-primary-rev {
+  @apply text-white dark:text-black;
+}
+
+@utility text-secondary-rev {
+  @apply text-gray-600 dark:text-gray-900;
+}
+
+/* //for svgs color */
+@utility image-primary {
+  @apply text-black dark:text-white;
+}
+/* //for svgs */
+@utility image-secondary {
+  @apply text-gray-800 dark:text-gray-400;
+}
+
+@utility psr-green-svg {
+  @apply text-green-800;
+}
+
+@utility psr-red-svg {
+  @apply text-red-800;
+}
+
+@utility text-error-primary {
+  @apply text-red-50 dark:text-red-500;
+}
+
+@utility text-error-secondary {
+  @apply text-red-800 dark:text-red-700;
+}
+
+@utility background-primary {
+  @apply bg-white dark:bg-gray-800;
+}
+
+@utility background-secondary {
+  @apply bg-white dark:bg-gray-400;
+}
+
+@utility background-color-1 {
+  @apply bg-gray-200 dark:bg-gray-400;
+}
+
+@utility background-other {
+  @apply bg-black dark:bg-white;
+}
+
+/* @utility label-text-color {
+  @apply text-gray-900 dark:text-gray-300;
+} */
+
+/* @utility label-background {
+  @apply bg-transparent dark:bg-transparent;
+} */
+
+@utility text-selected-item {
+  @apply text-blue-500 dark:text-blue-400;
+}
+
+@utility text-theme-blue {
+  @apply text-blue-600 dark:text-blue-600;
+}
+
+@utility background-selected-item {
+  @apply bg-gray-500 dark:bg-gray-300;
+}
+
+@utility svg-icon-color {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+@utility psr-table-style {
+  @apply text-gray-500 dark:text-gray-400;
+}
+
+@utility psr-table-thead-style {
+  @apply text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400;
+}
+
+@utility psr-table-tbody-tr-style {
+  @apply odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200;
+}
+
+@utility psr-table-tbody-tr-th-style {
+  /*text sizes from text.css*/
+  @apply text-small sm:text-small md:text-medium lg:text-large xl:text-large;
+}
+
+@utility psr-table-tbody-tr-td-style {
+  @apply text-primary text-small sm:text-small md:text-medium lg:text-large xl:text-large;
+}
+
+@utility component-data-container {
+  @apply mx-auto grid divide-y divide-neutral-200;
+}
+
+@utility component-data-action-container {
+  @apply flex sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4;
+}
+
+@utility html-input-style {
+  @apply placeholder:text-gray-400 text-gray-600;
+}
+
+@utility html-inputs {
+  @apply border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 disabled:border-0 disabled:cursor-not-allowed;
+  @apply text-small text-primary;
+  @apply p-2;
+}
+
+@utility dialog-background {
+  @apply bg-black/60 dark:bg-gray-100/75;
+}
+
+@utility dialog-title {
+  @apply text-black;
+}
+
+@utility dialog-message {
+  @apply text-gray-500;
+}
+
+@utility dialog-yes-button {
+  @apply bg-white hover:bg-gray-50 ring-gray-300 dark:ring-gray-500;
+}
+
+@utility dialog-no-button {
+  @apply bg-red-600 hover:bg-red-500;
+}
+
+/* @utility dialog-panel-style{
+    @apply bg-gray-500/75 dark:bg-gray-100/75
+} */
+
+/* @theme {
+  
+  --link-primary-light: #fff;
+  --link-primary-dark: #fff;
+
+  --link-secondary-light: #fff;
+  --link-secondary-dark: #fff;
+
+  --scrollbar-primary-light: #fff;
+  --scrollbar-primary-dark: #fff;
+
+  --scrollbar-secondary-light: #fff;
+  --scrollbar-secondary-dark: #fff;
+
+  --scrollbg-primary-light: #fff;
+  --scrollbg-primary-dark: #fff;
+
+  --scrollbg-secondary-light: #fff;
+  --scrollbg-secondary-dark: #fff;
+
+  --labelbg-primary-light: #fff;
+  --labelbg-primary-dark: #fff;
+
+  --labelbg-secondary-light: #fff;
+  --labelbg-secondary-dark: #fff;
+
+  --label-border-primary-light: #fff;
+  --label-border-primary-dark: #fff;
+
+  --label-border-secondary-light: #fff;
+  --label-border-secondary-dark: #fff;
+
+  --buttonbg-primary-light: #fff;
+  --buttonbg-primary-dark: #fff;
+
+  --buttonbg-secondary-light: #fff;
+  --buttonbg-secondary-dark: #fff;
+
+  --button-border-primary-light: #fff;
+  --button-border-primary-dark: #fff;
+
+  --button-border-secondary-light: #fff;
+  --button-border-secondary-dark: #fff;
+
+  --text-error: #ef5350;
+  --text-error-hover: #ab5350;
+
+  --primary: #fff;
+  --secondary: #e4e4e4;
+  --selection: #ddd;
+  --hover: #11182713;
+  --border: #ccc;
+  --link: teal;
+  --textprimary: #111;
+  --textsecondary: #555;
+  --btn_primary_hover: #672367;
+  --btn_primary_bg: #271f27;
+  --btn_primary_text: #ffffff;
+  --btn_secondary_hover: #672367;
+  --btn_secondary_bg: #672367;
+  --btn_secondary_text: #ffffff;
+  --btn_error_hover: #ab5350;
+  --btn_error_bg: #ef5350;
+  --btn_error_text: #ffffff;
+  --btn_warning_hover: #aa9800;
+  --btn_warning_bg: #ff9800;
+  --btn_warning_text: #ffffff;
+
+  --primaryrgb: 0, 15, 255;
+  --secondaryrgb: 228, 228, 228;
+  --textprimaryrgb: 0, 1, 17;
+  --textsecondaryrgb: 0, 5, 85; */
+/* } */

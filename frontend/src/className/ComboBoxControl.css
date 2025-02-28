@@ -8,3 +8,7 @@
 .form-control-labeled .nz-label-container:last-child{
     padding-top: 2px;
 }
+
+.sqlite-page-div-container>.form-control-labeled{
+    padding-left:0px !important
+}

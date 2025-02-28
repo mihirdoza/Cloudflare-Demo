@@ -1,0 +1,72 @@
+@import "../../../psrStyles/index.css";
+.form-control-labeled-etc {
+  @apply flex flex-col mt-1 pr-1;
+}
+.form-control-labeled-etc .MuiInputBase-root {
+  @apply p-1 rounded-none border-2 border-gray-300 focus:border-gray-300;
+}
+.form-control-labeled-etc .MuiInputBase-root fieldset {
+  @apply border-none!;
+}
+.form-control-labeled-etc .MuiInputBase-root.Mui-error {
+  @apply border rounded-none border-solid border-[red];
+}
+.form-control-labeled-etc .psr-label:first-child {
+  @apply pb-0 ml-0 mb-0 font-semibold;
+}
+.form-control-labeled-etc .psr-label:last-child {
+  @apply pt-0 ml-0 mt-0;
+}
+.form-control-labeled-etc input {
+  @apply p-px whitespace-nowrap overflow-hidden text-ellipsis;
+}
+.form-control-labeled-etc input,
+.form-control-labeled-etc label {
+  @apply text-small font-normal;
+  /* font-family: var(--fontfamily); */
+}
+.form-control-labeled-etc p {
+  @apply text-small font-normal;
+  /* font-family: var(--fontfamily); */
+}
+.form-control-labeled-etc fieldset {
+  /* @apply border-[color:var(--border)] border; */
+}
+
+/*
+.form-control-labeled-etc {
+  @apply flex flex-col mt-2.5 px-[5px];
+}
+.form-control-labeled-etc .MuiInputBase-root {
+  @apply p-1 rounded-none border-2 border-gray-300 focus:border-gray-300;
+}
+
+.form-control-labeled-etc .MuiInputBase-root fieldset {
+  @apply border-none!;
+}
+
+.form-control-labeled-etc .MuiInputBase-root.Mui-error {
+  @apply border rounded-none border-solid border-[red];
+}
+.form-control-labeled-etc .psr-label:first-child {
+  @apply pb-0 ml-0 mb-0 font-semibold;
+}
+.form-control-labeled-etc .psr-label:last-child {
+  @apply pt-0 ml-0 mt-0;
+}
+.form-control-labeled-etc input {
+  @apply p-px whitespace-nowrap overflow-hidden text-ellipsis;
+}
+.form-control-labeled-etc input,
+.form-control-labeled-etc label {
+  @apply text-sm font-normal;
+  font-family: var(--fontfamily);
+}
+.form-control-labeled-etc p {
+  @apply text-sm font-normal;
+  font-family: var(--fontfamily);
+}
+.form-control-labeled-etc fieldset {
+  @apply border-[color:var(--border)] border;
+}
+*/

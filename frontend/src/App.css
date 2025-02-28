@@ -2664,6 +2664,7 @@
     height: 100%;
     width: 100%;
     overflow: scroll;
+    overflow-x: hidden;
   }
   body {
     margin: 0;
@@ -9127,3 +9128,78 @@
 
  
  
+.pop-up{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.db-name{
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  width: 50%;
+}
+.db-name input{
+  width: 80%;
+  margin: 10px 0;
+  padding: 10px;
+}
+.db-button{
+  display: flex;
+  justify-content: center;
+}
+.db-button button{
+  cursor: pointer;
+  margin: 5px;
+  padding: 10px;
+}
+
+
+.loading-boader{
+  width: 48px;
+  height: 48px;
+  border: 5px solid #a3a0a0;
+  border-bottom-color: #FFF;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+
+}
+
+
+.nz-grid-container-div{
+height: calc(100vh - 475.682px) !important;  /* 422.682px */
+}
+
+.MuiFormControlLabel-root{
+  width: max-content;
+}
+
+@keyframes rotation {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }}
+
+
+  .bg-button-loading{
+background-color: #FFF39D !important;
+color: black !important;
+  }
+
+  .bg-button{
+    background-color: #7BF1A8  !important;
+    color: black !important;
+  }

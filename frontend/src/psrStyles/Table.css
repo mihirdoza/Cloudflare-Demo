@@ -1,0 +1,80 @@
+@layer components {
+  .psr-data-table {
+    @apply flex overflow-x-auto shadow-md sm:rounded-lg;
+  }
+
+  .psr-data-table table {
+    @apply w-full h-fit text-left rtl:text-right;
+    /*from theme.css*/
+    @apply psr-table-style;
+  }
+
+  .psr-data-table table thead {
+    @apply uppercase sticky;
+    @apply psr-table-thead-style; /*From theme.css*/
+  }
+
+  .psr-data-table table thead tr,
+  .psr-data-table table tbody tr {
+    @apply table table-fixed w-full ;
+  }
+
+  .psr-data-table table thead tr th {
+    @apply text-center first:w-22 first:text-center first:sticky first:left-0 p-1 sm:p-1 md:p-1 lg:p-1.5 xl:p-2;
+    @apply border-red-400 border-1 border-collapse;
+  }
+
+  .psr-data-table table thead tr th label {
+    /*text sizes from theme.css*/
+    @apply psr-table-tbody-tr-th-style;
+  }
+
+  .psr-data-table table tbody {
+    @apply overflow-auto block h-50 sm:h-50 md:h-60 lg:h-70 xl:h-90;
+    @apply [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100;
+    @apply [&::-webkit-scrollbar-thumb]:rounded-full;
+    @apply [&::-webkit-scrollbar-thumb]:bg-gray-300;
+    @apply dark:[&::-webkit-scrollbar-track]:bg-neutral-700;
+    @apply dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500;
+  }
+
+  .psr-data-table table tbody tr {
+    /* From Theme.css */
+    @apply psr-table-tbody-tr-style;
+  }
+
+  .psr-data-table table tbody tr td {
+    @apply align-middle items-center text-center first:w-22 first:text-center first:sticky first:left-0 first:font-medium first:whitespace-nowrap;
+    /* from Spacing.css */
+    @apply psr-padding-style-1;
+    /* From Theme.css */
+    @apply psr-table-tbody-tr-td-style;
+    /* @apply first:z-40 */
+    @apply border-red-400 border-1 border-collapse;
+  }
+  
+  .psr-data-table table tbody tr td .psr-image {
+    @apply m-auto;
+  }
+
+  .psr-data-action-svg {
+    @apply size-6 cursor-pointer m-1;
+  }
+
+  .psr-table-first-col-div{
+    @apply flex justify-center;
+  }
+  
+  /* .psr-table-first-col-div button{
+    @apply invisible group-hover:visible;
+  } */
+  
+  /* .psr-table-first-col-div hover:button{
+    @apply inline;
+  } */
+
+  /* /Start new Resize classes/ */
+  .resize-handle {
+    @apply w-1 h-4! bg-amber-950 cursor-col-resize end-0 right-0 ml-auto mb-0;
+  }
+}

@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Below is taken for testing purpose*/
+@import "./Theme.css";
+/* html {
+} */
+
+body {
+  @apply background-primary;
+}
+
+body #root{
+  @apply w-screen h-screen;
+  @apply p-2 sm:p-1 md:p-2 lg:p-3 xl:p-4;
+}
+
+@import "./Spacing.css";
+@import "./Text.css";
+@import "./Image.css";
+@import "./Lists.css";
+@import "./Label.css";
+@import "./HtmlTexts.css";
+/* @import "./Table.css"; *//*NotUsingNow*/
+@import "./TableV2.css";
+@import "./HtmlOtherElement.css";
+@import "./Dialog.css";
+@import "./ActionImage.css";
+
+.sqlite-page-title{
+  @apply text-center p-1 mx-5;
+}
+
+.sqlite-page-div-container{
+  @apply flex flex-row justify-around items-start py-1;
+}
+
+.sqlite-page-section{
+  @apply mx-0 py-1;
+}
+
+.sqlite-page-div-label{
+  @apply min-w-72 my-auto ml-1;
+}
+
+.sqlite-page-button{
+  @apply  min-w-30 w-40 border-1 ml-auto max-h-[50px] lg:mt-1 md:mt-1 mt-2   right-0 text-center rounded-sm;
+}
+
+.sqlite-page-button-left{
+  @apply  ml-1! my-1;
+}

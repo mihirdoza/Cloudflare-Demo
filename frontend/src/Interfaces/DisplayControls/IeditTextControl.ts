@@ -3,6 +3,7 @@ export interface IeditTextControl {
     uniqueName: string;               // Identifier for the input field
     value: string;              // Initial or current value of the input
     isRenderAsForm: boolean;    // Specifies if this is being rendered as part of a form
+    allowInputChangeEvent?:boolean; // if true it will call input value change
     placeHolder?: string;        // if provided it will apply place holder to textbox 
     label?: string;              // Display label for the input field
     isRequired?: boolean;        // Indicates if the field is mandatory

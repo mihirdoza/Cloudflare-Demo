@@ -1,0 +1,100 @@
+/* @import "tailwindcss"; */
+/* @import "../../../psrStyles/index.css"; */
+
+/* //THis will handle the data scroll of table with fixed header and first col */
+.psr-tablev2-container {
+  /* max-width: 100%; */
+  /* max-width: 40em; */
+  /* max-height: 20em; */
+  /* overflow: scroll; */
+  /* position: relative; */
+  @apply shadow-md sm:rounded-lg;
+  @apply overflow-scroll;
+  /* @apply overflow-x-e; */
+  @apply relative;
+  @apply max-h-[20em];
+  @apply max-w-full;
+  
+  @apply [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100;
+  @apply [&::-webkit-scrollbar-thumb]:rounded-full;
+  @apply [&::-webkit-scrollbar-thumb]:bg-gray-300;
+  @apply dark:[&::-webkit-scrollbar-track]:bg-neutral-700;
+  @apply dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500;
+}
+
+.psr-tablev2-container table {
+  /* width: 100%;
+  position: relative;
+  border-collapse: collapse; */
+  @apply w-full relative border-collapse;
+}
+
+.psr-tablev2-container td,
+.psr-tablev2-container th {
+  /* padding: 0.25em; */
+  @apply p-[0.25em];
+}
+.psr-tablev2-container thead th {
+  @apply psr-table-thead-style; /*From theme.css*/
+}
+
+.psr-tablev2-container thead th {
+  position: -webkit-sticky; /* for Safari */
+  /* position: sticky; */
+  /* top: 0;
+  background: #000;
+  color: #FFF; */
+  /* bg-black text-white uppercase */
+  @apply sticky top-0 uppercase;
+  @apply text-center first:w-22 first:text-center p-1 sm:p-1 md:p-1 lg:p-1.5 xl:p-2;
+}
+
+.psr-tablev2-container thead th:first-child {
+  /* left: 0;
+  z-index: 1; */
+  @apply left-0 z-1;
+}
+
+.psr-tablev2-container thead th label {
+  /*text sizes from theme.css*/
+  @apply psr-table-tbody-tr-th-style;
+}
+
+.psr-tablev2-container tbody th {
+  position: -webkit-sticky; /* for Safari */
+  /* position: sticky;
+  left: 0;
+  background: #FFF;
+  border-right: 1px solid #CCC; */
+  /* border-right: 1px solid #CCC; */
+  @apply sticky left-0 bg-white border-r-black;
+}
+
+.psr-tablev2-container tbody tr {
+  /* From Theme.css */
+  @apply psr-table-tbody-tr-style;
+}
+
+.psr-tablev2-container tbody tr td {
+  /* //first:w-22  */
+  /* first:sticky  */
+  @apply align-middle items-center text-center first:text-center first:left-0 first:font-medium first:whitespace-nowrap;
+  /* from Spacing.css */
+  @apply psr-padding-style-1;
+  /* From Theme.css */
+  @apply psr-table-tbody-tr-td-style;
+  /* @apply first:z-40 */
+  /* @apply border-red-400 border-1 border-collapse; */
+}
+
+.psr-tablev2-container table tbody tr td .psr-image {
+  @apply m-auto;
+}
+
+.psr-data-action-svg {
+  @apply size-6 cursor-pointer m-1;
+}
+
+.psr-table-first-col-div{
+  @apply flex justify-center;
+}
